@@ -15,12 +15,16 @@ class App extends React.Component {
   }
   handleChangeType=(event)=>{
       console.log(this.state);
-        this.setState({
+      console.log(event);
+      console.log(event.target);
+      event.persist();
+        this.setState(state=>({
             filters: {
                 ...this.state.filters,
                 type:event.target.value
                 }
-        })
+            })
+        )
   }
   buildFindPetsUrl=()=>{
       let petsUrl=`/api/pets`;
